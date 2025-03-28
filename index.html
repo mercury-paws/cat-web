@@ -1,168 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="./contact.js" defer></script> -->
+    <script src="./leaveReview.js" defer></script>
+    <title>PawPrints Journal</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Project</title>
-</head>
-
-<body>
+  <body>
     <header class="header">
-        <div class="container header-container">
-            <img src="./img/cat.svg" alt="cat" class="logo">
-            <h1 class="label">Котодім</h1>
-        </div>
+      <div class="container header-container">
+        <h1 class="label">PawPrints Journal</h1>
+        <a class="contact-us" href="mailto:anastasiia.kutsenkova@gmail.com"
+          >pawprintsjournal@gmail.com</a
+        >
+      </div>
     </header>
     <main class="main">
-        <div class="container">
-            <ul class="posts">
-                <li class="post">
-                    <a href="#">
-                        <picture>
-                            <!-- For viewports wider than 768px -->
-                            <source media="(min-width: 768px)" srcset="img/picture-1.png">
+      <div class="container">
+        <ul class="posts">
+          <li class="post">
+            <a href="./pages/about.html">
+              <picture>
+                <!-- For viewports wider than 768px -->
+                <source media="(min-width: 768px)" srcset="img/picture-1.png" />
 
-                            <!-- For viewports between 320px and 768px -->
-                            <source media="(min-width: 320px) and (max-width: 767px)" srcset="img/picture-1-small.png">
+                <!-- For viewports between 320px and 768px -->
+                <source
+                  media="(min-width: 320px) and (max-width: 767px)"
+                  srcset="img/picture-1-small.png"
+                />
 
-                            <!-- Fallback content -->
-                            <img src="img/picture-1-small.png" alt="Description of Image">
-                        </picture>
-                        <div class="overlay">
-                            <h2 class="post-title sub-title">Коти та їхні чудові навички: від полювання до загадкових
-                                здібностей</h2>
-                        </div>
-                    </a>
-                </li>
-                <li class="post">
-                    <a href="#">
-                        <img src="./img/picture-2.png" alt="scary kitten" class="post-img">
-                        <div class="overlay">
-                            <h2 class="post-title sub-title">Коти в літературі та мистецтві: від Егіпетських богів до
-                                сучасних
-                                майстрів</h2>
-                        </div>
-                    </a>
-                </li>
-                <li class="post">
-                    <a href="#">
-                        <img src="./img/picture-3.png" alt="cat" class="post-img">
-                        <div class="overlay">
-                            <h2 class="post-title sub-title">Котячі породи для активних власників: як вибрати
-                                компаньйона
-                            </h2>
-                        </div>
-                    </a>
-                </li>
+                <!-- Fallback content -->
+                <img src="img/picture-1-small.png" alt="Description of Image" />
+              </picture>
+              <div class="overlay">
+                <h2 class="post-title sub-title">
+                  Коти та їхні чудові навички: від полювання до загадкових
+                  здібностей
+                </h2>
+              </div>
+            </a>
+          </li>
+          <li class="post">
+            <a href="./pages/literature.html">
+              <img
+                src="./img/picture-2.png"
+                alt="scary kitten"
+                class="post-img"
+              />
+              <div class="overlay">
+                <h2 class="post-title sub-title">
+                  Коти в літературі та мистецтві: від Егіпетських богів до
+                  сучасних майстрів
+                </h2>
+              </div>
+            </a>
+          </li>
+          <li class="post">
+            <a href="./pages/breed.html">
+              <img src="./img/picture-3.png" alt="cat" class="post-img" />
+              <div class="overlay">
+                <h2 class="post-title sub-title">
+                  Котячі породи для активних власників: як вибрати компаньйона
+                </h2>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <section class="longread">
+          <ul class="blog">
+            <li class="blog-item">
+              <a href="#" class="blog-link">
+                <img src="./img/1.png" alt="cat" class="blog-photo" />
+                <div class="wrapper">
+                  <h2 class="blog-title sub-title">
+                    Забавні факти про котів, які вас здивують
+                  </h2>
+                  <p class="blog-text">
+                    Веселі та цікаві факти про котів, які піднімуть вам настрій
+                    та розкажуть про їхні унікальність.
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li class="blog-item">
+              <a href="#" class="blog-link">
+                <img src="./img/2.png" alt="cats" class="blog-photo" />
+                <div class="wrapper">
+                  <h2 class="blog-title sub-title">
+                    Найпопулярніші породи котів: який кіт підходить вам?
+                  </h2>
+                  <p class="blog-text">
+                    Вивчіть найпопулярніші породи котів і їхні особливості, щоб
+                    зробити інформований вибір, який підходить саме вам.
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li class="blog-item">
+              <a href="#" class="blog-link">
+                <img src="./img/4.png" alt="red-cat" class="blog-photo" />
+                <div class="wrapper">
+                  <h2 class="blog-title sub-title">
+                    Як піклуватися про вашого пухнастого друга: догляд за котом
+                  </h2>
+                  <p class="blog-text">
+                    Дізнайтеся про основні аспекти догляду за котом, включаючи
+                    годування, гігієну та взаємодію з вашим улюбленцем.
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li class="blog-item">
+              <a href="#" class="blog-link">
+                <img src="./img/3.png" alt="red-cat" class="blog-photo" />
+                <div class="wrapper">
+                  <h2 class="blog-title sub-title">
+                    Історія та культурна значущість котів в усьому світ
+                  </h2>
+                  <p class="blog-text">
+                    Вивчіть, як коти впливали на культури різних народів та
+                    дізнайтеся історію спільного життя людей і котів.
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <div class="socials">
+            <h2 class="socials-title title">Соцмережі</h2>
+            <ul class="socials-list">
+              <li class="socials-item">
+                <a href="#" class="social-link">
+                  <img
+                    src="./img/instagram.png"
+                    alt="instagram"
+                    class="social-icon"
+                  />
+                  <p class="social-subscripers">230.000</p>
+                </a>
+              </li>
+              <li class="socials-item">
+                <a href="#" class="social-link">
+                  <img
+                    src="./img/facebook.png"
+                    alt="facebook"
+                    class="social-icon"
+                  />
+                  <p class="social-subscripers">230.000</p>
+                </a>
+              </li>
+              <li class="socials-item">
+                <a href="#" class="social-link">
+                  <img
+                    src="./img/youtube.png"
+                    alt="youtube"
+                    class="social-icon"
+                  />
+                  <p class="social-subscripers">230.000</p>
+                </a>
+              </li>
+              <li class="socials-item">
+                <a href="#" class="social-link">
+                  <img
+                    src="./img/tiktok.png"
+                    alt="tiktok"
+                    class="social-icon"
+                  />
+                  <p class="social-subscripers">230.000</p>
+                </a>
+              </li>
+              <li class="socials-item">
+                <a href="#" class="social-link">
+                  <img
+                    src="./img/github.png"
+                    alt="github"
+                    class="social-icon"
+                  />
+                  <p class="social-subscripers">230.000</p>
+                </a>
+              </li>
+              <li class="socials-item">
+                <a href="#" class="social-link">
+                  <img
+                    src="./img/twitter.png"
+                    alt="twitter"
+                    class="social-icon"
+                  />
+                  <p class="social-subscripers">230.000</p>
+                </a>
+              </li>
             </ul>
-            <section class="longread">
-                <ul class="blog">
-                    <li class="blog-item">
-                        <a href="#" class="blog-link">
-                            <img src="./img/1.png" alt="cat" class="blog-photo">
-                            <div class="wrapper">
-                                <h2 class="blog-title sub-title">Забавні факти про котів, які вас здивують</h2>
-                                <p class="blog-text">Веселі та цікаві факти про котів, які піднімуть вам настрій та
-                                    розкажуть про їхні унікальність.</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="blog-item">
-                        <a href="#" class="blog-link">
-                            <img src="./img/2.png" alt="cats" class="blog-photo">
-                            <div class="wrapper">
-                                <h2 class="blog-title sub-title">Найпопулярніші породи котів: який кіт підходить вам?
-                                </h2>
-                                <p class="blog-text">Вивчіть найпопулярніші породи котів і їхні особливості, щоб зробити
-                                    інформований вибір, який підходить саме вам.</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="blog-item">
-                        <a href="#" class="blog-link">
-                            <img src="./img/4.png" alt="red-cat" class="blog-photo">
-                            <div class="wrapper">
-                                <h2 class="blog-title sub-title">Як піклуватися про вашого пухнастого друга: догляд за
-                                    котом
-                                </h2>
-                                <p class="blog-text">Дізнайтеся про основні аспекти догляду за котом, включаючи
-                                    годування,
-                                    гігієну та взаємодію з вашим улюбленцем.</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="blog-item">
-                        <a href="#" class="blog-link">
-                            <img src="./img/3.png" alt="red-cat" class="blog-photo">
-                            <div class="wrapper">
-                                <h2 class="blog-title sub-title">Історія та культурна значущість котів в усьому світ
-                                </h2>
-                                <p class="blog-text">Вивчіть, як коти впливали на культури різних народів та дізнайтеся
-                                    історію спільного життя людей і котів.</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-                <div class="socials">
-                    <h2 class="socials-title title">Соцмережі</h2>
-                    <ul class="socials-list">
-                        <li class="socials-item">
-                            <a href="#" class="social-link">
-                                <img src="./img/instagram.png" alt="instagram" class="social-icon">
-                                <p class="social-subscripers">230.000</p>
-                            </a>
-                        </li>
-                        <li class="socials-item">
-                            <a href="#" class="social-link">
-                                <img src="./img/facebook.png" alt="facebook" class="social-icon">
-                                <p class="social-subscripers">230.000</p>
-                            </a>
-                        </li>
-                        <li class="socials-item">
-                            <a href="#" class="social-link">
-                                <img src="./img/youtube.png" alt="youtube" class="social-icon">
-                                <p class="social-subscripers">230.000</p>
-                            </a>
-                        </li>
-                        <li class="socials-item">
-                            <a href="#" class="social-link">
-                                <img src="./img/tiktok.png" alt="tiktok" class="social-icon">
-                                <p class="social-subscripers">230.000</p>
-                            </a>
-                        </li>
-                        <li class="socials-item">
-                            <a href="#" class="social-link">
-                                <img src="./img/github.png" alt="github" class="social-icon">
-                                <p class="social-subscripers">230.000</p>
-                            </a>
-                        </li>
-                        <li class="socials-item">
-                            <a href="#" class="social-link">
-                                <img src="./img/twitter.png" alt="twitter" class="social-icon">
-                                <p class="social-subscripers">230.000</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="video">
-                    <h2 class="video-title title">Відео з пухнастиком</h2>
-                    <img src="./img/picture.png" alt="video">
-                </div>
-            </section>
-        </div>
+          </div>
+          <div class="video">
+            <h2 class="video-title title">Відео з пухнастиком</h2>
+            <img src="./img/picture.png" alt="video" />
+          </div>
+        </section>
+      </div>
     </main>
     <footer class="footer">
-        <div class="container footer-container">
-            <img src="./img/cat.svg" alt="cat" class="logo">
-            <h2 class="label">Котодім</h2>
+      <div class="container footer-container">
+        <h2 class="label">PawPrints Journal</h2>
+        <div class="subscribe-section">
+          <button class="subscribe-button" type="submit">Leave a review</button>
         </div>
+        <p class="rights-res">&copy; 2025 mercury_paws. All Rights Reserved.</p>
+      </div>
     </footer>
-    <script src="./index.js"></script>
-</body>
 
+    <!-- backdrop -->
+    <div class="backdrop-user mobile">
+      <div class="modal-user">
+        <button class="close-icon" type="button">
+          <svg width="8" height="8" class="close-icon-svg">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+        <p class="explanation-of-form-text">
+          Write down your thoughts about our work!
+        </p>
+        <form class="form" name="leave-your-contacts" autocomplete="off">
+          <div class="input-svg-wrapper">
+            <label class="form-label" for="user-name">Name</label>
+            <div class="input-svg-relative">
+              <input
+                class="form-input"
+                id="user-name"
+                type="text"
+                name="name"
+                required
+              />
+              <svg width="18" height="24" class="input-icon">
+                <use href="./images/icons.svg#icon-person"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="input-svg-wrapper">
+            <label class="form-label" for="user-email">Email</label>
+            <div class="input-svg-relative">
+              <input
+                class="form-input"
+                id="user-email"
+                type="email"
+                name="email"
+                required
+                pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+                title="Please enter a valid email address (e.g. user@example.com)"
+              />
+              <svg width="18" height="24" class="input-icon">
+                <use href="./images/icons.svg#icon-email"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="review-form-field-wrapper">
+            <label class="form-label" for="user-comment"> Comment </label>
+            <textarea
+              class="review-form-field-message"
+              name="comment"
+              rows="5"
+              placeholder="Text input"
+              id="user-comment"
+              title="Please enter from 10 till 210 "
+            ></textarea>
+          </div>
+          <div class="review-form-checkbox-wrapper">
+            <input
+              class="terms-conditions-checkbox visually-hidden"
+              type="checkbox"
+              name="user-privacy"
+              value="true"
+              required
+              id="user-privacy"
+            />
+            <label class="terms-conditions" for="user-privacy">
+              <span class="input-checkbox-icon">
+                <svg width="10" height="10" class="checkbox-icon">
+                  <use href="./images/icons.svg#icon-check"></use>
+                </svg>
+              </span>
+              <p class="text-privacy-style">
+                I accept the terms and conditions of the
+                <a
+                  href="./pages/privacyPolicy.html"
+                  target="_blank"
+                  class="privacy-policy-text"
+                  target="_blank"
+                >
+                  Privacy Policy
+                </a>
+              </p>
+            </label>
+          </div>
+          <button class="form-button" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
