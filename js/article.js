@@ -24,7 +24,7 @@ async function fetchArticle(id) {
 
     const article = await fetchArticle(catArticleId);
     if (article) {
-        document.getElementById("container").textContent = DOMPurify.sanitize(article.text);
+      document.getElementById("container").innerHTML = DOMPurify.sanitize(article.text);
     }
 }
 
