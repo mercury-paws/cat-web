@@ -22,11 +22,12 @@ async function fetchCatArticle() {
             ({  title, 
                 header, 
                 date, 
-                _id
+              _id,
+                photo
             }) => {
                 return `<li class="blog-item">
                 <a href="pages/article.html?id=${_id}" class="blog-link">
-                <img src="./img/1.png" alt="cat" class="blog-photo" />
+                <img src="./img/${photo}.png" alt="cat" class="blog-photo" />
 <div class="wrapper">
               <h2 class="blog-title sub-title">${DOMPurify.sanitize(title)}</h2>
               <p class="blog-text">${DOMPurify.sanitize(header)}</p>
