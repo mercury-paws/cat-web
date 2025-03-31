@@ -10,7 +10,7 @@ li {
 
 .main-header {
   font-size: 54px;
-  max-width: 800px;
+  max-width: 1020px;
 }
 
 h2 {
@@ -24,7 +24,7 @@ h2 {
 }
 
 li,
-p {
+.article-page p {
   padding: 8px 0 8px 0;
   font-size: 24px;
   z-index: 999;

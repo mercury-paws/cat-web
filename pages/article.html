@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../css/small-art.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../js/leaveReview.js" defer></script>
+    <script src="../js/leaveReview.ts" defer></script>
     <script src="../js/article.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.min.js"></script>
     <title>PawPrints Journal</title>
@@ -30,7 +30,7 @@
       </div>
     </header>
     <main class="main">
-      <div class="container" id="container">
+      <div class="container article-page" id="container">
         <div class="first-par">
           <h1 class="main-header">Забавні факти про котів, які вас здивують</h1>
           <div class="img-text-block">
@@ -106,7 +106,9 @@
     </main>
     <footer class="footer">
       <div class="container footer-container">
-        <h2 class="label-footer">PawPrints Journal</h2>
+        <h2 class="label-footer">
+          <a href="../index.html">PawPrints Journal</a>
+        </h2>
         <div class="subscribe-section">
           <button class="subscribe-button" type="submit">Leave a review</button>
         </div>
