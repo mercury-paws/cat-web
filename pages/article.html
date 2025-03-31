@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../css/small-art.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/leaveReview.js" defer></script>
+    <script src="../js/article.js" defer></script>
+    <title>PawPrints Journal</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-container">
+        <h1 class="label-footer">
+          <a href="../index.html">PawPrints Journal</a>
+        </h1>
+        <a class="contact-us" href="mailto:anastasiia.kutsenkova@gmail.com"
+          >pawprintsjournal@gmail.com</a
+        >
+      </div>
+    </header>
+    <main class="main">
+      <div class="container" id="container">
+        <div class="first-par">
+          <h1 class="main-header">Забавні факти про котів, які вас здивують</h1>
+          <div class="img-text-block">
+            <p class="hero-text">
+              Коти - справжні майстри загадковості та чарівності. Вони можуть
+              поводитися граціозно, але водночас влаштовувати справжній цирк.
+              Ось кілька веселих фактів про котів, які точно вас здивують!
+            </p>
+          </div>
+          <img class="hero-img" src="../img/pages/3.png" />
+        </div>
+        <section class="about-paragraph">
+          <article class="article-block">
+            <ul>
+              <li>
+                <h3>Коти можуть пити воду лапою</h3>
+                <p>
+                  Деякі коти віддають перевагу незвичному способу пиття - вони
+                  спочатку занурюють лапку у воду, а потім облизують її. Це може
+                  бути пов'язано з тим, що їм зручніше контролювати кількість
+                  води або їм просто подобається грати з нею.
+                </p>
+              </li>
+              <li>
+                <h3>Вони можуть "полювати" уві сні</h3>
+                <p>
+                  Коти настільки віддані інстинкту хижака, що навіть під час сну
+                  їхні лапи можуть смикатися, ніби вони переслідують здобич. Це
+                  явище називається "мисливськими снами".
+                </p>
+              </li>
+              <li>
+                <h3>Коти мають три повіки</h3>
+                <p>
+                  У котів є третя повіка, відома як мигальна перетинка. Вона
+                  допомагає зволожувати око та захищати його від пилу та дрібних
+                  частинок.
+                </p>
+              </li>
+              <li>
+                <h3>Їхній мозок ближче до людського, ніж мозок собаки</h3>
+                <p>
+                  Будова котячого мозку на 90% схожа на людську. Вони мають ті ж
+                  самі ділянки, що відповідають за емоції, пам'ять і навчання.
+                </p>
+              </li>
+              <li>
+                <h3>Деякі коти "співають"</h3>
+                <p>
+                  Деякі породи, такі як сіамські коти, відомі своєю
+                  "балакучістю". Вони можуть видавати звуки, схожі на справжні
+                  мелодії, коли хочуть привернути увагу або висловити свої
+                  емоції.
+                </p>
+              </li>
+              <li>
+                <h3>Коти можуть відчувати землетруси</h3>
+                <p>
+                  Перед землетрусами коти можуть поводитися неспокійно, тому що
+                  їхні чутливі лапи сприймають вібрації землі ще до того, як
+                  люди їх помічають.
+                </p>
+              </li>
+            </ul>
+            <p class="paragraph-start-text">
+              Коти - це неймовірні створіння, які завжди можуть здивувати нас
+              своєю поведінкою та унікальними звичками. Вони роблять наше життя
+              цікавішим і дарують море позитивних емоцій!
+            </p>
+          </article>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container footer-container">
+        <h2 class="label-footer">PawPrints Journal</h2>
+        <div class="subscribe-section">
+          <button class="subscribe-button" type="submit">Leave a review</button>
+        </div>
+        <p class="rights-res">&copy; 2025 mercury_paws. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- backdrop -->
+    <div class="backdrop-user mobile">
+      <div class="modal-user">
+        <button class="close-icon" type="button">
+          <svg width="8" height="8" class="close-icon-svg">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+        <p class="explanation-of-form-text">
+          Write down your thoughts about our work!
+        </p>
+        <form class="form" name="leave-your-contacts" autocomplete="off">
+          <div class="input-svg-wrapper">
+            <label class="form-label" for="user-name">Name</label>
+            <div class="input-svg-relative">
+              <input
+                class="form-input"
+                id="user-name"
+                type="text"
+                name="name"
+                required
+              />
+              <svg width="18" height="24" class="input-icon">
+                <use href="./images/icons.svg#icon-person"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="input-svg-wrapper">
+            <label class="form-label" for="user-email">Email</label>
+            <div class="input-svg-relative">
+              <input
+                class="form-input"
+                id="user-email"
+                type="email"
+                name="email"
+                required
+                pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+                title="Please enter a valid email address (e.g. user@example.com)"
+              />
+              <svg width="18" height="24" class="input-icon">
+                <use href="./images/icons.svg#icon-email"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="review-form-field-wrapper">
+            <label class="form-label" for="user-comment"> Comment </label>
+            <textarea
+              class="review-form-field-message"
+              name="comment"
+              rows="5"
+              placeholder="Text input"
+              id="user-comment"
+              title="Please enter from 10 till 210 "
+            ></textarea>
+          </div>
+          <div class="review-form-checkbox-wrapper">
+            <input
+              class="terms-conditions-checkbox visually-hidden"
+              type="checkbox"
+              name="user-privacy"
+              value="true"
+              required
+              id="user-privacy"
+            />
+            <label class="terms-conditions" for="user-privacy">
+              <span class="input-checkbox-icon">
+                <svg width="10" height="10" class="checkbox-icon">
+                  <use href="./images/icons.svg#icon-check"></use>
+                </svg>
+              </span>
+              <p class="text-privacy-style">
+                I accept the terms and conditions of the
+                <a
+                  href="./pages/privacyPolicy.html"
+                  target="_blank"
+                  class="privacy-policy-text"
+                  target="_blank"
+                >
+                  Privacy Policy
+                </a>
+              </p>
+            </label>
+          </div>
+          <button class="form-button" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

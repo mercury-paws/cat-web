@@ -5,13 +5,45 @@
   padding: 0 0 16px 0;
 }
 
-.header-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 8px;
-  align-items: center;
-  background-color: var(--orange);
-  height: 68px;
+@media (max-width: 640px) {
+  .header-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    align-items: center;
+    background-color: var(--orange);
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .label {
+    color: var(--grey);
+    font-family: var(--common-font);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0.5px;
+    grid-row: 1;
+  }
+  .contact-us {
+    grid-row: 2;
+  }
+}
+
+@media (min-width: 640px) {
+  .header-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8px;
+    align-items: center;
+    background-color: var(--orange);
+    height: 68px;
+  }
+  .contact-us {
+    grid-column: 2;
+    text-align: center;
+    color: var(--grey);
+  }
 }
 
 .label {
@@ -208,6 +240,12 @@
   padding: 16px;
 }
 
+@media (max-width: 480px) {
+  .footer .footer-container {
+    font-size: 12px;
+  }
+}
+
 .footer-container {
   display: grid;
   grid-template-rows: auto auto; /* Two rows: first for label & button, second for rights */
@@ -221,11 +259,17 @@
 }
 
 /* Ensure label and button align in the first row */
-.label {
+.label-footer {
   grid-row: 1;
   grid-column: 1; /* Label in first column */
   margin: 0;
   justify-self: center;
+  color: var(--grey);
+  font-family: var(--common-font);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 0.5px;
 }
 
 .subscribe-section {
@@ -238,9 +282,4 @@
   grid-row: 2;
   grid-column: 1 / span 2; /* Span across both columns */
   text-align: center; /* Center text */
-}
-.contact-us {
-  grid-column: 2;
-  text-align: center;
-  color: var(--grey);
 }

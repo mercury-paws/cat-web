@@ -292,6 +292,7 @@ input:checked {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
 }
 .review-form-checkbox-wrapper {
   display: inline-flex;

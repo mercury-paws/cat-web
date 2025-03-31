@@ -12,14 +12,16 @@
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../css/about.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../leaveReview.js" defer></script>
+    <script src="../js/leaveReview.js" defer></script>
     <title>PawPrints Journal</title>
   </head>
 
   <body>
     <header class="header">
       <div class="container header-container">
-        <h1 class="label"><a href="../index.html">PawPrints Journal</a></h1>
+        <h1 class="label-footer">
+          <a href="../index.html">PawPrints Journal</a>
+        </h1>
         <a class="contact-us" href="mailto:anastasiia.kutsenkova@gmail.com"
           >pawprintsjournal@gmail.com</a
         >
@@ -28,20 +30,20 @@
     <main class="main">
       <div class="container">
         <div class="first-par">
-          <h1>
+          <h1 class="main-header">
             Коти та їхні чудові навички: від полювання до загадкових здібностей
           </h1>
           <div class="img-text-block">
             <p class="hero-text">
               Коти завжди викликали у людей захоплення, містичний трепет і
-              навіть забобони. У кожного
-              кота є унікальний набір навичок, що робить його справжнім майстром
-              виживання, навіть якщо він ніколи не покидав затишної квартири. У
-              цій статті ми розглянемо феноменальні здібності котів — від їхніх
-              мисливських талантів до майже надприродних чуттів.
+              навіть забобони. У кожного кота є унікальний набір навичок, що
+              робить його справжнім майстром виживання, навіть якщо він ніколи
+              не покидав затишної квартири. У цій статті ми розглянемо
+              феноменальні здібності котів — від їхніх мисливських талантів до
+              майже надприродних чуттів.
             </p>
           </div>
-            <img class="hero-img" src="../img/pages/1.png" />
+          <img class="hero-img" src="../img/pages/1.png" />
         </div>
         <section class="about-paragraph">
           <article class="article-block">
@@ -52,7 +54,7 @@
               Попри свою домашність, коти залишаються природженими мисливцями.
               Їхні тіла пристосовані до ідеального переслідування здобичі:
             </p>
-            <ol class="list">
+            <ul class="list">
               <li class="item">
                 Гострий зір. Коти бачать у темряві приблизно у шість разів краще
                 за людей завдяки спеціальним клітинам сітківки. Їхні очі
@@ -83,7 +85,7 @@
               Коти є справжніми майстрами паркуру! Їхнє тіло настільки гнучке,
               що дозволяє здійснювати запаморочливі трюки:
             </p>
-            <ol class="list">
+            <ul class="list">
               <li class="item">
                 "Правило котячого перевороту". Коти мають унікальну здатність
                 перевертати своє тіло в повітрі, щоби приземлитися на лапи. Це
@@ -115,7 +117,7 @@
               На відміну від собак, які активно використовують гавкіт, коти
               спілкуються дуже витончено:
             </p>
-            <ol class="list">
+            <ul class="list">
               <li class="item">
                 Муркотіння. Це одна з найбільш загадкових котячих особливостей.
                 Дослідження показують, що муркотіння може мати лікувальний
@@ -149,7 +151,7 @@
               Існує безліч історій про котів, які передчувають події ще до того,
               як вони відбуваються. Ось кілька цікавих фактів:
             </p>
-            <ol class="list">
+            <ul class="list">
               <li class="item">
                 Коти відчувають землетруси. Дослідники помітили, що коти можуть
                 поводитися неспокійно за кілька годин або навіть днів до
@@ -179,7 +181,7 @@
               Вони можуть запам’ятовувати своїх господарів, розрізняти їхні
               голоси та навіть навчатися новим командам:
             </p>
-            <ol class="list">
+            <ul class="list">
               <li class="item">
                 Коти запам’ятовують маршрути у квартирі, положення предметів та
                 можуть передбачати дії людей.
@@ -200,7 +202,7 @@
               правилам!
             </p>
           </article>
-          <img class="img-curiocity" src="../img/pages/12.png"/>
+          <img class="img-curiocity" src="../img/pages/12.png" />
         </section>
         <section class="about-paragraph">
           <p class="paragraph-start-text">
@@ -215,14 +217,11 @@
             підозрювали!
           </p>
         </section>
-        <section>
-          <img class="cat-on-the-back" src="../img/pages/5.png">
-        </section>
       </div>
     </main>
     <footer class="footer">
       <div class="container footer-container">
-        <h2 class="label">PawPrints Journal</h2>
+        <h2 class="label-footer">PawPrints Journal</h2>
         <div class="subscribe-section">
           <button class="subscribe-button" type="submit">Leave a review</button>
         </div>
