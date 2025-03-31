@@ -163,7 +163,7 @@ p {
 
 .img-communication {
   position: absolute;
-  top: 20%;
+  top: -20px;
   right: 2%;
   width: 270px;
 }

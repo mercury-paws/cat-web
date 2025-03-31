@@ -36,7 +36,7 @@ p {
 
 .hero-img {
   position: absolute;
-  top: 15%;
+  top: 3%;
   right: 10%;
   width: 450px;
   z-index: 2;
@@ -120,7 +120,7 @@ p {
 
 .acrobatic-cat {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 3%;
   max-width: 300px;
   z-index: 2;
@@ -177,9 +177,9 @@ p {
 
 .img-curiocity {
   position: absolute;
-  top: 5%;
+  top: 0;
   left: 0;
-  width: 160px;
+  width: 140px;
 }
 
 .main .container section:nth-of-type(6) {
