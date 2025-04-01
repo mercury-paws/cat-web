@@ -17,7 +17,7 @@ function fetchArticle(id) {
         try {
             const response = yield axios.get(`/cat-article/${id}`);
             console.log(response.data.data);
-            return response.data.data.items;
+            return response.data.data;
         }
         catch (error) {
             throw new Error(`Error fetching cat-article: ${((_b = (_a = error.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.message) || error.message}`);
@@ -35,6 +35,7 @@ function renderArticle() {
             return;
         }
         const article = yield fetchArticle(catArticleId);
+        console.log(article.text);
         if (article) {
             container.innerHTML = DOMPurify.sanitize(article.text);
         }
