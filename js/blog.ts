@@ -34,7 +34,7 @@ async function renderCatArticle() {
         .map(
             ({  title, 
                 header, 
-                date, 
+
               _id,
                 photo
             }) => {
