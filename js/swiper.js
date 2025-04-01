@@ -45,3 +45,4 @@ function prevReview() {
 }
 nextBtn.addEventListener("click", nextReview);
 prevBtn.addEventListener("click", prevReview);
+// fetching articles

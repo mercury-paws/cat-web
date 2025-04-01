@@ -56,4 +56,3 @@ prevBtn.addEventListener("click", prevReview);
 
 
 // fetching articles
-

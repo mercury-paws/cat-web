@@ -27,10 +27,11 @@ async function fetchCatArticle(): Promise<BlogArticle[]> {
   }
 
 async function renderCatArticle() {
-  if (!blogList) return;
+
+  let blog = await fetchCatArticle();
   
-    let blog = await fetchCatArticle();
- 
+  if (!blog) return;
+  
     blogList.innerHTML = blog
         .map(
             ({  title, 
