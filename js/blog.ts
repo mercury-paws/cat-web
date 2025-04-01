@@ -1,6 +1,7 @@
 const blogList = document.querySelector('.blog') as HTMLElement;
 
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
+// axios.defaults.baseURL = "http://localhost:5500"
 axios.defaults.withCredentials = true;
 
 interface BlogArticle{
@@ -15,7 +16,7 @@ async function fetchCatArticle(): Promise<BlogArticle[]> {
     try {
       const response = await axios.get("/cat-article");
       console.log("3data", response.data.data.data)
-      console.log("2data", response.data.data.items)
+      console.log("2data", response.data.items)
       return response.data.data.items;
     } catch (error: any) {
       throw new Error(`Error fetching blog: ${error.response?.data?.message || error.message}`);
@@ -25,6 +26,7 @@ async function fetchCatArticle(): Promise<BlogArticle[]> {
 async function renderCatArticle() {
 
   let blog = await fetchCatArticle();
+  console.log(blog)
   
   if (!blog || blog.length === 0) return;
   

@@ -17,7 +17,7 @@ function fetchArticle(id) {
         try {
             const response = yield axios.get(`/cat-article/${id}`);
             console.log(response.data.data);
-            return response.data.data;
+            return response.data.data.items;
         }
         catch (error) {
             throw new Error(`Error fetching cat-article: ${((_b = (_a = error.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.message) || error.message}`);
@@ -27,7 +27,9 @@ function fetchArticle(id) {
 function renderArticle() {
     return __awaiter(this, void 0, void 0, function* () {
         const urlParams = new URLSearchParams(window.location.search);
+        console.log("urlParams", urlParams);
         const catArticleId = urlParams.get("id");
+        console.log("catArticleId", catArticleId);
         if (!catArticleId) {
             console.error("No article ID provided.");
             return;

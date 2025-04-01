@@ -15,8 +15,9 @@ async function fetchArticle(id: string) {
 
   async function renderArticle() {
     const urlParams = new URLSearchParams(window.location.search);
+    console.log("urlParams", urlParams)
     const catArticleId = urlParams.get("id");
-
+console.log("catArticleId", catArticleId)
     if (!catArticleId) {
         console.error("No article ID provided.");
         return;

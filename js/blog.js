@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const blogList = document.querySelector('.blog');
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
+// axios.defaults.baseURL = "http://localhost:5500"
 axios.defaults.withCredentials = true;
 function fetchCatArticle() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -17,8 +18,8 @@ function fetchCatArticle() {
         try {
             const response = yield axios.get("/cat-article");
             console.log("3data", response.data.data.data);
-            console.log("2data", response.data.data);
-            return response.data.data.data;
+            console.log("2data", response.data.items);
+            return response.data.data.items;
         }
         catch (error) {
             throw new Error(`Error fetching blog: ${((_b = (_a = error.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.message) || error.message}`);
@@ -28,6 +29,7 @@ function fetchCatArticle() {
 function renderCatArticle() {
     return __awaiter(this, void 0, void 0, function* () {
         let blog = yield fetchCatArticle();
+        console.log(blog);
         if (!blog || blog.length === 0)
             return;
         blogList.innerHTML = blog
