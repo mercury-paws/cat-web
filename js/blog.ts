@@ -15,8 +15,8 @@ async function fetchCatArticle(): Promise<BlogArticle[]> {
     try {
       const response = await axios.get("/cat-article");
       console.log("3data", response.data.data.data)
-      console.log("2data", response.data.data)
-      return response.data.data.data;
+      console.log("2data", response.data.data.items)
+      return response.data.data.items;
     } catch (error: any) {
       throw new Error(`Error fetching blog: ${error.response?.data?.message || error.message}`);
     }  

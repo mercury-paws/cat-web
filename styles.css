@@ -122,7 +122,8 @@
       "b b s"
       "b b s"
       "b b v"
-      "b b .";
+      "b b ."
+      "d d .";
 
     gap: 30px 24px;
   }
@@ -135,6 +136,9 @@
   }
   .video {
     grid-area: v;
+  }
+  .arrow-dot-block {
+    grid-area: d;
   }
 }
 
@@ -305,6 +309,7 @@
   height: 42px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 .scroll-down.left {
   right: 0;
@@ -318,6 +323,7 @@
   height: 42px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 .scroll-down.right {
   left: -2px;

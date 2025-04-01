@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES6",  // or "ES2015", but ES6+ is recommended
+    "lib": ["ES2015", "DOM"],  // Add ES2015 for Promise support
+    "strict": true,  // Optional: for stricter type checking
+    "moduleResolution": "node",
+    "esModuleInterop": true
+  },
+  "include": [
+    "js/**/*",
+    "globals.d.ts" 
+  ]
+}
