@@ -24,6 +24,7 @@ console.log("catArticleId", catArticleId)
     }
 
     const article = await fetchArticle(catArticleId);
+    console.log(article.text)
     if (article) {
       container.innerHTML = DOMPurify.sanitize(article.text);
     }

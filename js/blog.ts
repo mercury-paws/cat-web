@@ -15,9 +15,9 @@ interface BlogArticle{
 async function fetchCatArticle(): Promise<BlogArticle[]> {
     try {
       const response = await axios.get("/cat-article");
-      console.log("3data", response.data.data.data)
+      // console.log("3data", response.data.data.data) wrong
       console.log("2data", response.data.data.items)
-      console.log("1data", response.data.items)
+      // console.log("1data", response.data.items) wrong
       return response.data.data.items;
     } catch (error: any) {
       throw new Error(`Error fetching blog: ${error.response?.data?.message || error.message}`);
@@ -27,7 +27,7 @@ async function fetchCatArticle(): Promise<BlogArticle[]> {
 async function renderCatArticle() {
 
   let blog = await fetchCatArticle();
-  console.log("blog", blog)
+  console.log("blog", blog) //super
   
   if (!blog || blog.length === 0) return;
   
@@ -38,7 +38,7 @@ async function renderCatArticle() {
               _id,
                 photo
           }) => {
-            console.log("id", _id)
+            // console.log("id", _id) super
                 return `<li class="blog-item">
                 <a href="pages/article.html?id=${_id}" class="blog-link">
                 <img src="./img/${photo}.png" alt="cat" class="blog-photo" />
