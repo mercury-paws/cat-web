@@ -1,8 +1,11 @@
 const blogList = document.querySelector('.blog') as HTMLElement;
+import { getCurrentPage } from "./swiper";
 
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 // axios.defaults.baseURL = "http://localhost:5500"
 axios.defaults.withCredentials = true;
+
+
 
 interface BlogArticle{
   title: string;
@@ -12,9 +15,10 @@ interface BlogArticle{
   photo: string;
 }
 
-async function fetchCatArticle(): Promise<BlogArticle[]> {
-    try {
-      const response = await axios.get("/cat-article");
+export async function fetchCatArticle(): Promise<BlogArticle[]> {
+  try {
+    let page = getCurrentPage();
+      const response = await axios.get(`/cat-article?page=${page}`);
       // console.log("3data", response.data.data.data) wrong
       console.log("2data", response.data.data.items)
       // console.log("1data", response.data.items) wrong
