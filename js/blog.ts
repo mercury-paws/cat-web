@@ -18,7 +18,8 @@ interface BlogArticle{
 async function fetchCatArticle(): Promise<BlogArticle[]> {
     try {
       const response = await axios.get("/cat-article");
-      console.log(response.data.data.data)
+      console.log("3data", response.data.data.data)
+      console.log("2data", response.data.data)
       return response.data.data.data;
     } catch (error) {
       throw new Error(`Error fetching blog: ${error.response?.data?.message || error.message}`);
@@ -34,7 +35,6 @@ async function renderCatArticle() {
         .map(
             ({  title, 
                 header, 
-
               _id,
                 photo
             }) => {
