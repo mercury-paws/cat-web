@@ -283,3 +283,62 @@
   grid-column: 1 / span 2; /* Span across both columns */
   text-align: center; /* Center text */
 }
+
+.arrow-dot-block {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  max-width: 1050px;
+  justify-content: space-evenly;
+}
+.scroll-down {
+  fill: #fd9222;
+  padding: 8px;
+  width: 42px;
+  height: 42px;
+}
+
+#prevBtn {
+  left: -30px;
+  top: 50%;
+  width: 42px;
+  height: 42px;
+  background-color: transparent;
+  border: none;
+}
+.scroll-down.left {
+  right: 0;
+  top: 0;
+  rotate: 90deg;
+}
+#nextBtn {
+  right: -30px;
+  top: 50%;
+  width: 42px;
+  height: 42px;
+  background-color: transparent;
+  border: none;
+}
+.scroll-down.right {
+  left: -2px;
+  top: -3px;
+  rotate: -90deg;
+}
+
+.dot-list {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.dot-item {
+  width: 10px;
+  height: 10px;
+  background-color: #fd9222;
+  border-radius: 40%;
+}
+.dot-active {
+  width: 20px;
+}
+.dot-container {
+  margin-top: 15px;
+}
