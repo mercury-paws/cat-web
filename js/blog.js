@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -9,14 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const blogList = document.querySelector('.blog');
+import { getCurrentPage } from "./swiper";
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 // axios.defaults.baseURL = "http://localhost:5500"
 axios.defaults.withCredentials = true;
-function fetchCatArticle() {
+export function fetchCatArticle() {
     return __awaiter(this, void 0, void 0, function* () {
         var _a, _b;
         try {
-            const response = yield axios.get("/cat-article");
+            let page = getCurrentPage();
+            const response = yield axios.get(`/cat-article?page=${page}`);
             // console.log("3data", response.data.data.data) wrong
             console.log("2data", response.data.data.items);
             // console.log("1data", response.data.items) wrong
