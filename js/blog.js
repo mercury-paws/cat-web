@@ -7,77 +7,40 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-var blogList = document.querySelector('.blog');
+const blogList = document.querySelector('.blog');
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
 function fetchCatArticle() {
-    return __awaiter(this, void 0, void 0, function () {
-        var response, error_1;
+    return __awaiter(this, void 0, void 0, function* () {
         var _a, _b;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
-                case 0:
-                    _c.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, axios.get("/cat-article")];
-                case 1:
-                    response = _c.sent();
-                    console.log("3data", response.data.data.data);
-                    console.log("2data", response.data.data);
-                    return [2 /*return*/, response.data.data.data];
-                case 2:
-                    error_1 = _c.sent();
-                    throw new Error("Error fetching blog: ".concat(((_b = (_a = error_1.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.message) || error_1.message));
-                case 3: return [2 /*return*/];
-            }
-        });
+        try {
+            const response = yield axios.get("/cat-article");
+            console.log(response.data.data.data);
+            return response.data.data.data;
+        }
+        catch (error) {
+            throw new Error(`Error fetching blog: ${((_b = (_a = error.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.message) || error.message}`);
+        }
     });
 }
 function renderCatArticle() {
-    return __awaiter(this, void 0, void 0, function () {
-        var blog;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetchCatArticle()];
-                case 1:
-                    blog = _a.sent();
-                    if (!blog)
-                        return [2 /*return*/];
-                    blogList.innerHTML = blog
-                        .map(function (_a) {
-                        var title = _a.title, header = _a.header, _id = _a._id, photo = _a.photo;
-                        return "<li class=\"blog-item\">\n                <a href=\"pages/article.html?id=".concat(_id, "\" class=\"blog-link\">\n                <img src=\"./img/").concat(photo, ".png\" alt=\"cat\" class=\"blog-photo\" />\n<div class=\"wrapper\">\n              <h2 class=\"blog-title sub-title\">").concat(DOMPurify.sanitize(title), "</h2>\n              <p class=\"blog-text\">").concat(DOMPurify.sanitize(header), "</p>\n              </div>\n      </a>\n            </li>");
-                    })
-                        .join('');
-                    return [2 /*return*/];
-            }
-        });
+    return __awaiter(this, void 0, void 0, function* () {
+        if (!blogList)
+            return;
+        let blog = yield fetchCatArticle();
+        blogList.innerHTML = blog
+            .map(({ title, header, date, _id, photo }) => {
+            return `<li class="blog-item">
+                <a href="pages/article.html?id=${_id}" class="blog-link">
+                <img src="./img/${photo}.png" alt="cat" class="blog-photo" />
+<div class="wrapper">
+              <h2 class="blog-title sub-title">${DOMPurify.sanitize(title)}</h2>
+              <p class="blog-text">${DOMPurify.sanitize(header)}</p>
+              </div>
+      </a>
+            </li>`;
+        })
+            .join('');
     });
 }
 window.onload = renderCatArticle;
