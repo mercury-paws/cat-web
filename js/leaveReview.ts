@@ -1,4 +1,3 @@
-
 const isOpen = document.querySelector(".is-open");
 const closeIcon = document.querySelector(".close-icon");
 const orderService = document.querySelector(".subscribe-button");
@@ -7,7 +6,7 @@ const backdropUser = document.querySelector(".backdrop-user");
 const termsCheckbox = document.getElementById("user-privacy") as HTMLInputElement;
 const form = document.querySelector(".form") as HTMLFormElement;
 const STORAGE_KEY = 'contact-form-state';
-declare const axios: any;
+
 
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
@@ -100,7 +99,7 @@ form?.addEventListener('submit', async (event) => {
       const response = await axios.post("/comments/addComment", data);
     console.log(response.data);
     return true;
-    } catch (error) {
+    } catch (error: any) {
       console.error(`Error adding comment: ${error.response?.data?.message || error.message}`);
       alert("There was an issue with submitting your comment. Please try again.");
        return false;

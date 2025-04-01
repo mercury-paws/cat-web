@@ -1,8 +1,4 @@
-declare const axios: any;
 const container = document.getElementById("container") as HTMLElement;
-declare const DOMPurify: {
-  sanitize: (input: string) => string;
-};
 
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;

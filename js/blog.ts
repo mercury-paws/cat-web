@@ -1,8 +1,4 @@
 const blogList = document.querySelector('.blog') as HTMLElement;
-declare const DOMPurify: {
-  sanitize: (input: string) => string;
-};
-declare const axios: any;
 
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
@@ -21,7 +17,7 @@ async function fetchCatArticle(): Promise<BlogArticle[]> {
       console.log("3data", response.data.data.data)
       console.log("2data", response.data.data)
       return response.data.data.data;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Error fetching blog: ${error.response?.data?.message || error.message}`);
     }  
   }
@@ -30,7 +26,7 @@ async function renderCatArticle() {
 
   let blog = await fetchCatArticle();
   
-  if (!blog) return;
+  if (!blog || blog.length === 0) return;
   
     blogList.innerHTML = blog
         .map(

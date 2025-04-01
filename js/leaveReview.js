@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -55,7 +56,7 @@ if (inputData) {
     (form === null || form === void 0 ? void 0 : form.elements.namedItem('comment')).value = data.comment;
     (form === null || form === void 0 ? void 0 : form.elements.namedItem("name")).value = data.name;
 }
-form === null || form === void 0 ? void 0 : form.addEventListener('submit', (event) => __awaiter(this, void 0, void 0, function* () {
+form === null || form === void 0 ? void 0 : form.addEventListener('submit', (event) => __awaiter(void 0, void 0, void 0, function* () {
     event.preventDefault();
     const email = form.elements.namedItem('email').value.trim();
     const comment = form.elements.namedItem('comment').value.trim();

@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -15,7 +16,8 @@ function fetchCatArticle() {
         var _a, _b;
         try {
             const response = yield axios.get("/cat-article");
-            console.log(response.data.data.data);
+            console.log("3data", response.data.data.data);
+            console.log("2data", response.data.data);
             return response.data.data.data;
         }
         catch (error) {
@@ -25,11 +27,11 @@ function fetchCatArticle() {
 }
 function renderCatArticle() {
     return __awaiter(this, void 0, void 0, function* () {
-        if (!blogList)
-            return;
         let blog = yield fetchCatArticle();
+        if (!blog || blog.length === 0)
+            return;
         blogList.innerHTML = blog
-            .map(({ title, header, date, _id, photo }) => {
+            .map(({ title, header, _id, photo }) => {
             return `<li class="blog-item">
                 <a href="pages/article.html?id=${_id}" class="blog-link">
                 <img src="./img/${photo}.png" alt="cat" class="blog-photo" />

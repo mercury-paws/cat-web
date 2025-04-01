@@ -1,11 +1,12 @@
-var dots = document.querySelectorAll(".dot-item");
-var nextBtn = document.getElementById("nextBtn");
-var prevBtn = document.getElementById("prevBtn");
-var currentIndex = 0;
-var dotLength = dots.length;
+"use strict";
+const dots = document.querySelectorAll(".dot-item");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+let currentIndex = 0;
+let dotLength = dots.length;
 // .setAttribute("disabled", "");
 function updateDot() {
-    dots.forEach(function (dot, i) {
+    dots.forEach((dot, i) => {
         if (i === currentIndex) {
             dot.classList.add("dot-active");
         }
