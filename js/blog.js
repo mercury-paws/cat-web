@@ -18,7 +18,8 @@ function fetchCatArticle() {
         try {
             const response = yield axios.get("/cat-article");
             console.log("3data", response.data.data.data);
-            console.log("2data", response.data.items);
+            console.log("2data", response.data.data.items);
+            console.log("1data", response.data.items);
             return response.data.data.items;
         }
         catch (error) {
@@ -29,11 +30,12 @@ function fetchCatArticle() {
 function renderCatArticle() {
     return __awaiter(this, void 0, void 0, function* () {
         let blog = yield fetchCatArticle();
-        console.log(blog);
+        console.log("blog", blog);
         if (!blog || blog.length === 0)
             return;
         blogList.innerHTML = blog
             .map(({ title, header, _id, photo }) => {
+            console.log("id", _id);
             return `<li class="blog-item">
                 <a href="pages/article.html?id=${_id}" class="blog-link">
                 <img src="./img/${photo}.png" alt="cat" class="blog-photo" />
