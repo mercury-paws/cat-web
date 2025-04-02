@@ -16,9 +16,11 @@ const commentsForm = document.querySelector('.comments');
 function readCommentsFormData(form) {
     const comment = form.elements.namedItem('comment').value.trim();
     const name = form.elements.namedItem('name').value.trim();
+    const email = form.elements.namedItem('email').value.trim();
     return {
         comment,
         name,
+        email,
     };
 }
 commentsForm === null || commentsForm === void 0 ? void 0 : commentsForm.addEventListener('input', event => {
@@ -31,14 +33,17 @@ if (inputData) {
     const data = JSON.parse(inputData);
     commentsForm.elements.namedItem('comment').value = data.comment;
     commentsForm.elements.namedItem('name').value = data.name;
+    commentsForm.elements.namedItem('email').value = data.email;
 }
 commentsForm === null || commentsForm === void 0 ? void 0 : commentsForm.addEventListener('submit', (event) => __awaiter(void 0, void 0, void 0, function* () {
     event.preventDefault();
-    const comment = commentsForm.comment.value.trim();
-    const name = commentsForm.value.trim();
+    const comment = form.elements.namedItem("comment").value.trim();
+    const name = form.elements.namedItem("name").value.trim();
+    const email = form.elements.namedItem("email").value.trim();
     const sanitizedComment = sanitizeInput(comment);
     const sanitizedName = sanitizeInput(name);
-    if (!comment || !name || name === ' ' || comment === ' ') {
+    const sanitizedEmail = sanitizeInput(email);
+    if (!email || email === ' ' || !comment || !name || name === ' ' || comment === ' ') {
         alert('Please fill in both email and message fields.');
         return;
     }
@@ -48,7 +53,8 @@ commentsForm === null || commentsForm === void 0 ? void 0 : commentsForm.addEven
     }
     const data = {
         comment: sanitizedComment,
-        name: sanitizedName
+        name: sanitizedName,
+        email: sanitizedEmail,
     };
     console.log(readCommentsFormData(event.currentTarget));
     function addComment() {

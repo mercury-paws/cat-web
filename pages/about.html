@@ -265,6 +265,18 @@
                 required
               />
             </span>
+            <label class="comment-form-label" for="email">Пошта</label>
+              <input
+                class="email"
+                id="email"
+                type="email"
+                name="email"
+                required
+                pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+                title="Please enter a valid email address (e.g. user@example.com)"
+              
+              />
+            </span>
             <button class="comment-form-button" type="submit">
               Відправити
             </button>

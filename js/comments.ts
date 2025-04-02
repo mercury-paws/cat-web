@@ -8,6 +8,7 @@ const COMMENT_STORAGE_KEY = 'comment-form-state';
 const commentsForm = document.querySelector('.comments') as HTMLFormElement; 
 
 interface FormValues {
+  email: string;
   comment: string;
   name: string;
 }
@@ -16,9 +17,11 @@ interface FormValues {
 function readCommentsFormData(form: HTMLFormElement): FormValues {
   const comment = (form.elements.namedItem('comment') as HTMLTextAreaElement).value.trim();
   const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim();
+  const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
   return {
     comment,
     name,
+    email,
   };
 }
 
@@ -32,20 +35,23 @@ const inputData = localStorage.getItem(COMMENT_STORAGE_KEY);
 if (inputData) {
   const data = JSON.parse(inputData);
   (commentsForm.elements.namedItem('comment') as HTMLInputElement).value = data.comment;
-   (commentsForm.elements.namedItem('name') as HTMLInputElement).value = data.name;
+  (commentsForm.elements.namedItem('name') as HTMLInputElement).value = data.name;
+  (commentsForm.elements.namedItem('email') as HTMLInputElement).value = data.email;
 
 }
 
 commentsForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  const comment =  (commentsForm as HTMLFormElement).comment.value.trim();
-  const name = (commentsForm as HTMLFormElement).value.trim();
-
+  const comment =  (form.elements.namedItem("comment") as HTMLInputElement).value.trim();
+  const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
+  const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
+  
   const sanitizedComment = sanitizeInput(comment);
   const sanitizedName = sanitizeInput(name);
+  const sanitizedEmail = sanitizeInput(email);
 
-  if (!comment || !name || name === ' ' || comment === ' ') {
+  if (!email || email === ' ' || !comment || !name || name === ' ' || comment === ' ') {
     alert('Please fill in both email and message fields.');
     return;
   }
@@ -58,7 +64,8 @@ commentsForm?.addEventListener('submit', async (event) => {
 
   const data = {
     comment: sanitizedComment,
-    name: sanitizedName 
+    name: sanitizedName,
+    email: sanitizedEmail,
   }
 
   console.log(readCommentsFormData(event.currentTarget as HTMLFormElement));
