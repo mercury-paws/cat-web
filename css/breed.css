@@ -230,6 +230,7 @@ p {
 }
 .main .container section:nth-of-type(8) {
   grid-row: 9;
+
   grid-column: 1 / span 2;
   justify-content: center;
   justify-self: center;

@@ -15,7 +15,7 @@ const sendOrder = document.querySelector(".form-button");
 const backdropUser = document.querySelector(".backdrop-user");
 const termsCheckbox = document.getElementById("user-privacy");
 const form = document.querySelector(".form");
-const STORAGE_KEY = 'contact-form-state';
+const CONTACT_STORAGE_KEY = 'contact-form-state';
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
 orderService === null || orderService === void 0 ? void 0 : orderService.addEventListener("click", () => {
@@ -47,9 +47,9 @@ function readFormData(form) {
 form === null || form === void 0 ? void 0 : form.addEventListener('input', event => {
     const data = readFormData(event.currentTarget);
     const jsonData = JSON.stringify(data);
-    localStorage.setItem(STORAGE_KEY, jsonData);
+    localStorage.setItem(CONTACT_STORAGE_KEY, jsonData);
 });
-const inputData = localStorage.getItem(STORAGE_KEY);
+const inputData = localStorage.getItem(CONTACT_STORAGE_KEY);
 if (inputData) {
     const data = JSON.parse(inputData);
     (form === null || form === void 0 ? void 0 : form.elements.namedItem('email')).value = data.email;
@@ -81,11 +81,11 @@ form === null || form === void 0 ? void 0 : form.addEventListener('submit', (eve
         comment: sanitizedComment,
         name: sanitizedName,
     };
-    function addComment() {
+    function addContact() {
         return __awaiter(this, void 0, void 0, function* () {
             var _a, _b;
             try {
-                const response = yield axios.post("/comments/addComment", data);
+                const response = yield axios.post("/contacts/addContact", data);
                 console.log(response.data);
                 return true;
             }
@@ -96,9 +96,9 @@ form === null || form === void 0 ? void 0 : form.addEventListener('submit', (eve
             }
         });
     }
-    const success = yield addComment();
+    const success = yield addContact();
     if (success) {
-        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(CONTACT_STORAGE_KEY);
         form.reset();
         backdropUser === null || backdropUser === void 0 ? void 0 : backdropUser.classList.toggle("is-open");
         alert("The comment was added succesfully, thank you");

@@ -5,7 +5,7 @@ const sendOrder = document.querySelector(".form-button");
 const backdropUser = document.querySelector(".backdrop-user");
 const termsCheckbox = document.getElementById("user-privacy") as HTMLInputElement;
 const form = document.querySelector(".form") as HTMLFormElement;
-const STORAGE_KEY = 'contact-form-state';
+const CONTACT_STORAGE_KEY = 'contact-form-state';
 
 
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
@@ -51,10 +51,10 @@ function readFormData(form: HTMLFormElement): FormValues {
 form?.addEventListener('input', event => {
   const data = readFormData(event.currentTarget as HTMLFormElement);
   const jsonData = JSON.stringify(data);
-  localStorage.setItem(STORAGE_KEY, jsonData);
+  localStorage.setItem(CONTACT_STORAGE_KEY, jsonData);
 });
 
-const inputData = localStorage.getItem(STORAGE_KEY);
+const inputData = localStorage.getItem(CONTACT_STORAGE_KEY);
 if (inputData) {
   const data: FormValues = JSON.parse(inputData);
   (form?.elements.namedItem('email') as HTMLInputElement).value = data.email;
@@ -94,9 +94,9 @@ form?.addEventListener('submit', async (event) => {
     name: sanitizedName,
   };
 
-  async function addComment(): Promise<boolean> {
+  async function addContact(): Promise<boolean> {
     try {
-      const response = await axios.post("/comments/addComment", data);
+      const response = await axios.post("/contacts/addContact", data);
     console.log(response.data);
     return true;
     } catch (error: any) {
@@ -106,10 +106,10 @@ form?.addEventListener('submit', async (event) => {
     }
   }
 
-  const success = await addComment(); 
+  const success = await addContact(); 
 
   if(success){
-  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(CONTACT_STORAGE_KEY);
   form.reset();
   backdropUser?.classList.toggle("is-open");
   alert("The comment was added succesfully, thank you");

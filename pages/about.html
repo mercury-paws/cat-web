@@ -217,8 +217,57 @@
             підозрювали!
           </p>
         </section>
+        <section class="comment-section">
+          <h3>Коментарі</h3>
+          <article class="received-comment">
+            <p class="client-text-review">
+              Я ніколи не усвідомлював, скільки прихованих талантів мають коти!
+              Від їхніх мисливських інстинктів до здатності спілкуватися так
+              витончено, неймовірно, скільки ми можемо від них навчитися. Вони
+              справді містичні та захоплюючі створіння.
+            </p>
+            <p class="client-name">Максим</p>
+          </article>
+          <article class="received-comment">
+            <p class="client-text-review">
+              Неймовірно, як коти адаптуються до свого оточення, поєднуючи
+              грацію з інтелектом так, що це часто залишається непоміченим. Те,
+              як вони відчувають події до того, як вони стануться, наприклад,
+              землетруси, просто вражає. Коти — це точно більше, ніж просто милі
+              домашні улюбленці!
+            </p>
+            <p class="client-name">Юлія</p>
+          </article>
+        </section>
         <section>
-          <input type="textarea" />
+          <form class="comments" name="leave-your-comments" autocomplete="off">
+            <span>
+              <label class="comment-form-label" for="comment"
+                >Залиште ваш коментар, поділіться котячим досвідом!</label
+              >
+              <textarea
+                class="comment"
+                name="comment"
+                rows="5"
+                id="comment"
+                placeholder="Залиште ваш коментар тут..."
+              ></textarea>
+            </span>
+            <span>
+              <label class="comment-form-label" for="name">Ім'я</label>
+              <input
+                class="name"
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Ваше iм'я"
+                required
+              />
+            </span>
+            <button class="comment-form-button" type="submit">
+              Відправити
+            </button>
+          </form>
         </section>
       </div>
     </main>
@@ -228,7 +277,7 @@
           <a href="../index.html">PawPrints Journal</a>
         </h2>
         <div class="subscribe-section">
-          <button class="subscribe-button" type="submit">Leave a review</button>
+          <button class="subscribe-button" type="submit">Відгукнутись</button>
         </div>
         <p class="rights-res">&copy; 2025 mercury_paws. All Rights Reserved.</p>
       </div>
@@ -242,12 +291,10 @@
             <use href="../img/icons.svg#icon-close"></use>
           </svg>
         </button>
-        <p class="explanation-of-form-text">
-          Write down your thoughts about our work!
-        </p>
+        <p class="explanation-of-form-text">Напиши свої думки!</p>
         <form class="form" name="leave-your-contacts" autocomplete="off">
           <div class="input-svg-wrapper">
-            <label class="form-label" for="user-name">Name</label>
+            <label class="form-label" for="user-name">Ім'я</label>
             <div class="input-svg-relative">
               <input
                 class="form-input"
@@ -262,7 +309,7 @@
             </div>
           </div>
           <div class="input-svg-wrapper">
-            <label class="form-label" for="user-email">Email</label>
+            <label class="form-label" for="user-email">Пошта</label>
             <div class="input-svg-relative">
               <input
                 class="form-input"
@@ -279,7 +326,7 @@
             </div>
           </div>
           <div class="review-form-field-wrapper">
-            <label class="form-label" for="user-comment"> Comment </label>
+            <label class="form-label" for="user-comment"> Коментар </label>
             <textarea
               class="review-form-field-message"
               name="comment"
@@ -317,7 +364,7 @@
               </p>
             </label>
           </div>
-          <button class="form-button" type="submit">Send</button>
+          <button class="form-button" type="submit">Відправити</button>
         </form>
       </div>
     </div>

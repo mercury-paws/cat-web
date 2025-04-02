@@ -18,7 +18,9 @@ h2 {
 }
 
 .main-header,
-h2 {
+h2,
+h3 {
+  position: relative;
   padding: 16px;
   z-index: 999;
 }
@@ -196,6 +198,15 @@ p {
   justify-self: center;
   align-items: center;
   align-self: center;
+  padding: 0 16px 0 16px;
+}
+.main .container section:nth-of-type(8) {
+  grid-row: 9;
+  grid-column: 1 / span 2;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  align-self: center;
 }
 
 .cat-on-the-back {
@@ -217,4 +228,34 @@ p {
   .img-curiocity {
     opacity: 0.4;
   }
+}
+
+.received-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+
+  /* border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px; */
+  padding: 11px 16px 11px 38px;
+}
+
+.client-text-review {
+  font-size: 18px;
+  color: #6d6e7e;
+  font-style: oblique;
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: 1.12px;
+  text-align: start;
+}
+
+.client-name {
+  text-align: end;
+  margin-right: 48px;
+  color: #6d6e7e;
+  font-size: 16px;
 }

@@ -131,6 +131,7 @@
 
   .blog {
     grid-area: b;
+    height: 735px;
   }
   .social {
     grid-area: s;
@@ -253,8 +254,8 @@
 
 .footer-container {
   display: grid;
-  grid-template-rows: auto auto; /* Two rows: first for label & button, second for rights */
-  grid-template-columns: 1fr 1fr; /* Label on the left, button on the right */
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -263,7 +264,6 @@
   padding: 8px;
 }
 
-/* Ensure label and button align in the first row */
 .label-footer {
   grid-row: 1;
   grid-column: 1; /* Label in first column */
