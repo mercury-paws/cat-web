@@ -43,7 +43,7 @@ export async function renderCatArticle(page: number) {
             // console.log("id", _id) super
                 return `<li class="blog-item">
                 <a href="pages/article.html?id=${_id}" class="blog-link">
-                <img src="./img/${photo}.png" alt="cat" class="blog-photo" />
+                <img src="./img/${photo}" alt="cat" class="blog-photo" />
 <div class="wrapper">
               <h2 class="blog-title sub-title">${DOMPurify.sanitize(title)}</h2>
               <p class="blog-text">${DOMPurify.sanitize(header)}</p>

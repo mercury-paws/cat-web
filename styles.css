@@ -27,6 +27,7 @@
   }
   .contact-us {
     grid-row: 2;
+    text-align: center;
   }
 }
 
@@ -296,7 +297,7 @@
   justify-content: space-evenly;
 }
 .scroll-down {
-  fill: #fd9222;
+  fill: var(--orange);
   padding: 8px;
   width: 42px;
   height: 42px;
@@ -339,7 +340,7 @@
 .dot-item {
   width: 10px;
   height: 10px;
-  background-color: #fd9222;
+  background-color: var(--orange);
   border-radius: 40%;
 }
 .dot-active {
