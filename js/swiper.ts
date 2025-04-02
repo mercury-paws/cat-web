@@ -1,13 +1,9 @@
-import { fetchCatArticle } from "./blog";
+import { renderCatArticle } from "./blog.js";
 const dots = document.querySelectorAll(".dot-item") as NodeListOf<HTMLElement>;
 const nextBtn = document.getElementById("nextBtn") as HTMLElement;
 const prevBtn = document.getElementById("prevBtn")as HTMLElement;
 let currentIndex = 0;
 let dotLength = dots.length;
-
-export function getCurrentPage() {
-  return currentIndex+1
-}
 
 function updateDot() {
   dots.forEach((dot, i) => {
@@ -31,9 +27,10 @@ function nextReview() {
     nextBtn.setAttribute("disabled", "");
         return
     }
-    currentIndex++;
+  currentIndex++;
+  
   updateDot();
-  fetchCatArticle()
+  renderCatArticle(currentIndex+1)
 }
 
 function prevReview() {
@@ -49,7 +46,7 @@ function prevReview() {
     }
     currentIndex--;
   updateDot();
-  fetchCatArticle()
+  renderCatArticle(currentIndex+1)
 }
 
 nextBtn.addEventListener("click", nextReview);

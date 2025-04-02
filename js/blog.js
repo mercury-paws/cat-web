@@ -8,15 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const blogList = document.querySelector('.blog');
-import { getCurrentPage } from "./swiper";
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 // axios.defaults.baseURL = "http://localhost:5500"
 axios.defaults.withCredentials = true;
-export function fetchCatArticle() {
+function fetchCatArticle(page) {
     return __awaiter(this, void 0, void 0, function* () {
         var _a, _b;
         try {
-            let page = getCurrentPage();
             const response = yield axios.get(`/cat-article?page=${page}`);
             // console.log("3data", response.data.data.data) wrong
             console.log("2data", response.data.data.items);
@@ -28,9 +26,9 @@ export function fetchCatArticle() {
         }
     });
 }
-function renderCatArticle() {
+export function renderCatArticle(page) {
     return __awaiter(this, void 0, void 0, function* () {
-        let blog = yield fetchCatArticle();
+        let blog = yield fetchCatArticle(page);
         console.log("blog", blog); //super
         if (!blog || blog.length === 0)
             return;
@@ -50,4 +48,4 @@ function renderCatArticle() {
             .join('');
     });
 }
-window.onload = renderCatArticle;
+window.onload = () => renderCatArticle(1);

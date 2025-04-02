@@ -1,12 +1,9 @@
-import { fetchCatArticle } from "./blog";
+import { renderCatArticle } from "./blog.js";
 const dots = document.querySelectorAll(".dot-item");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
 let currentIndex = 0;
 let dotLength = dots.length;
-export function getCurrentPage() {
-    return currentIndex + 1;
-}
 function updateDot() {
     dots.forEach((dot, i) => {
         if (i === currentIndex) {
@@ -29,7 +26,7 @@ function nextReview() {
     }
     currentIndex++;
     updateDot();
-    fetchCatArticle();
+    renderCatArticle(currentIndex + 1);
 }
 function prevReview() {
     nextBtn.removeAttribute("disabled");
@@ -43,7 +40,7 @@ function prevReview() {
     }
     currentIndex--;
     updateDot();
-    fetchCatArticle();
+    renderCatArticle(currentIndex + 1);
 }
 nextBtn.addEventListener("click", nextReview);
 prevBtn.addEventListener("click", prevReview);
