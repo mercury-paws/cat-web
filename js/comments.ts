@@ -34,7 +34,7 @@ commentsForm?.addEventListener('input', event => {
 const inputData = localStorage.getItem(COMMENT_STORAGE_KEY);
 if (inputData) {
   const data = JSON.parse(inputData);
-  (commentsForm.elements.namedItem('comment') as HTMLInputElement).value = data.comment;
+  (commentsForm.elements.namedItem('comment') as HTMLTextAreaElement).value = data.comment;
   (commentsForm.elements.namedItem('name') as HTMLInputElement).value = data.name;
   (commentsForm.elements.namedItem('email') as HTMLInputElement).value = data.email;
 
@@ -43,7 +43,7 @@ if (inputData) {
 commentsForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  const comment =  (commentsForm.elements.namedItem("comment") as HTMLInputElement).value.trim();
+  const comment =  (commentsForm.elements.namedItem("comment") as HTMLTextAreaElement).value.trim();
   const name = (commentsForm.elements.namedItem("name") as HTMLInputElement).value.trim();
   const email = (commentsForm.elements.namedItem("email") as HTMLInputElement).value.trim();
   
