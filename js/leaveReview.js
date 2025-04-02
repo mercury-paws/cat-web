@@ -85,7 +85,7 @@ form === null || form === void 0 ? void 0 : form.addEventListener('submit', (eve
         return __awaiter(this, void 0, void 0, function* () {
             var _a, _b;
             try {
-                const response = yield axios.post("/contacts/addContact", data);
+                const response = yield axios.post("/comments/addComment", data);
                 console.log(response.data);
                 return true;
             }
