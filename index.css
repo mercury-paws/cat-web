@@ -89,7 +89,7 @@
     padding: 72px 42px 42px 42px;
   }
 }
-@media screen and (min-width: 767px) and (max-width: 1157px) {
+@media screen and (min-width: 320px) and (max-width: 1157px) {
   .modal-user {
     top: 50%;
     left: 50%;
