@@ -114,7 +114,7 @@
 
 .longread {
   display: grid;
-  gap: 96px;
+  gap: 46px;
 }
 
 @media (min-width: 1440px) {

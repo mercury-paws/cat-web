@@ -13,10 +13,10 @@ axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
 const COMMENT_STORAGE_KEY = 'comment-form-state';
 const commentsForm = document.querySelector('.comments');
-function readCommentsFormData(form) {
-    const comment = form.elements.namedItem('comment').value.trim();
-    const name = form.elements.namedItem('name').value.trim();
-    const email = form.elements.namedItem('email').value.trim();
+function readCommentsFormData(commentsForm) {
+    const comment = commentsForm.elements.namedItem('comment').value.trim();
+    const name = commentsForm.elements.namedItem('name').value.trim();
+    const email = commentsForm.elements.namedItem('email').value.trim();
     return {
         comment,
         name,
@@ -24,7 +24,7 @@ function readCommentsFormData(form) {
     };
 }
 commentsForm === null || commentsForm === void 0 ? void 0 : commentsForm.addEventListener('input', event => {
-    const data = readFormData(event.currentTarget);
+    const data = readCommentsFormData(event.currentTarget);
     const jsonData = JSON.stringify(data);
     localStorage.setItem(COMMENT_STORAGE_KEY, jsonData);
 });
@@ -45,10 +45,6 @@ commentsForm === null || commentsForm === void 0 ? void 0 : commentsForm.addEven
     const sanitizedEmail = sanitizeInput(email);
     if (!email || email === ' ' || !comment || !name || name === ' ' || comment === ' ') {
         alert('Please fill in both email and message fields.');
-        return;
-    }
-    if (!termsCheckbox.checked) {
-        alert('You must accept the terms and conditions before submitting.');
         return;
     }
     const data = {

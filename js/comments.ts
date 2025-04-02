@@ -14,10 +14,10 @@ interface FormValues {
 }
 
 
-function readCommentsFormData(form: HTMLFormElement): FormValues {
-  const comment = (form.elements.namedItem('comment') as HTMLTextAreaElement).value.trim();
-  const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim();
-  const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
+function readCommentsFormData(commentsForm: HTMLFormElement): FormValues {
+  const comment = (commentsForm.elements.namedItem('comment') as HTMLTextAreaElement).value.trim();
+  const name = (commentsForm.elements.namedItem('name') as HTMLInputElement).value.trim();
+  const email = (commentsForm.elements.namedItem('email') as HTMLInputElement).value.trim();
   return {
     comment,
     name,
@@ -26,7 +26,7 @@ function readCommentsFormData(form: HTMLFormElement): FormValues {
 }
 
 commentsForm?.addEventListener('input', event => {
-  const data = readFormData(event.currentTarget as HTMLFormElement);
+  const data = readCommentsFormData(event.currentTarget as HTMLFormElement);
   const jsonData = JSON.stringify(data);
   localStorage.setItem(COMMENT_STORAGE_KEY, jsonData);
 });
@@ -53,12 +53,6 @@ commentsForm?.addEventListener('submit', async (event) => {
 
   if (!email || email === ' ' || !comment || !name || name === ' ' || comment === ' ') {
     alert('Please fill in both email and message fields.');
-    return;
-  }
-
-  
-  if (!termsCheckbox.checked) {
-    alert('You must accept the terms and conditions before submitting.');
     return;
   }
 
