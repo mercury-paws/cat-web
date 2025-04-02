@@ -349,3 +349,7 @@
 .dot-container {
   margin-top: 15px;
 }
+
+.blog-photo {
+  border-radius: 20px;
+}

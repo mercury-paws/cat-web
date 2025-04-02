@@ -7,6 +7,10 @@ axios.defaults.withCredentials = true;
 const COMMENT_STORAGE_KEY = 'comment-form-state';
 const commentsForm = document.querySelector('.comments') as HTMLFormElement; 
 
+const urlParams = new URLSearchParams(window.location.search);
+    console.log("urlParams", urlParams)
+const catArticleId = urlParams.get("id");
+    
 interface FormValues {
   email: string;
   comment: string;
@@ -60,13 +64,14 @@ commentsForm?.addEventListener('submit', async (event) => {
     comment: sanitizedComment,
     name: sanitizedName,
     email: sanitizedEmail,
+
   }
 
   console.log(readCommentsFormData(event.currentTarget as HTMLFormElement));
 
   async function addComment() {
     try {
-      const response = await axios.post("/cat-comments/addComment", data);
+      const response = await axios.post(`/cat-comments/addComment/${catArticleId}`, data);
     console.log(response.data);
     return true;
     } catch (error: any) {

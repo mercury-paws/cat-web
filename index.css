@@ -267,7 +267,7 @@ input::placeholder {
   min-width: 169px;
   color: var(--grey);
   text-align: center;
-  font-family: Roboto, sans-serif;
+  font-family: var(--common-font);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -414,7 +414,7 @@ span.input-checkbox-icon {
   min-width: 169px;
   color: var(--grey);
   text-align: center;
-  font-family: Roboto, sans-serif;
+  font-family: var(--common-font);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
