@@ -96,7 +96,7 @@ form?.addEventListener('submit', async (event) => {
 
   async function addContact(): Promise<boolean> {
     try {
-      const response = await axios.post("/comments/addComment", data);
+      const response = await axios.post("/contacts/addContact", data);
     console.log(response.data);
     return true;
     } catch (error: any) {
