@@ -147,6 +147,7 @@
 .blog {
   display: grid;
   gap: 48px;
+  height: 2260px;
 }
 
 .blog-link {
@@ -158,6 +159,7 @@
 @media (min-width: 768px) {
   .blog {
     gap: 36px;
+    height: 735px;
   }
 
   .blog-link {
