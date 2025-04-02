@@ -37,9 +37,9 @@ if (inputData) {
 }
 commentsForm === null || commentsForm === void 0 ? void 0 : commentsForm.addEventListener('submit', (event) => __awaiter(void 0, void 0, void 0, function* () {
     event.preventDefault();
-    const comment = form.elements.namedItem("comment").value.trim();
-    const name = form.elements.namedItem("name").value.trim();
-    const email = form.elements.namedItem("email").value.trim();
+    const comment = commentsForm.elements.namedItem("comment").value.trim();
+    const name = commentsForm.elements.namedItem("name").value.trim();
+    const email = commentsForm.elements.namedItem("email").value.trim();
     const sanitizedComment = sanitizeInput(comment);
     const sanitizedName = sanitizeInput(name);
     const sanitizedEmail = sanitizeInput(email);

@@ -43,9 +43,9 @@ if (inputData) {
 commentsForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  const comment =  (form.elements.namedItem("comment") as HTMLInputElement).value.trim();
-  const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
-  const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
+  const comment =  (commentsForm.elements.namedItem("comment") as HTMLInputElement).value.trim();
+  const name = (commentsForm.elements.namedItem("name") as HTMLInputElement).value.trim();
+  const email = (commentsForm.elements.namedItem("email") as HTMLInputElement).value.trim();
   
   const sanitizedComment = sanitizeInput(comment);
   const sanitizedName = sanitizeInput(name);
