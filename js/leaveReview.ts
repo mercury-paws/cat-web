@@ -39,7 +39,7 @@ interface FormValues{
 
 function readFormData(form: HTMLFormElement): FormValues {
   const email = (form.elements.namedItem("email") as HTMLInputElement)?.value.trim() || "";
-  const comment = (form.elements.namedItem('comment') as HTMLTextAreaElement)?. value.trim() || "";
+  const comment = (form.elements.namedItem('comment') as HTMLTextAreaElement)?.value.trim() || "";
   const name = (form.elements.namedItem('name') as HTMLInputElement)?.value.trim() || "";
   return {
     email,

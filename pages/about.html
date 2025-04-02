@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../css/about.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../js/leaveReview.js" defer></script>
-    <script src="../js/comments.js" defer></script>
+    <script type="module" src="../js/leaveReview.js" defer></script>
+    <script type="module" src="../js/comments.js" defer></script>
     <title>PawPrints Journal</title>
   </head>
 
@@ -264,8 +264,9 @@
                 placeholder="Ваше iм'я"
                 required
               />
+            </span>
             <span>
-            <label class="comment-form-label" for="email">Пошта</label>
+              <label class="comment-form-label" for="email">Пошта</label>
               <input
                 class="email"
                 id="email"
@@ -274,7 +275,6 @@
                 required
                 pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
                 title="Please enter a valid email address (e.g. user@example.com)"
-              
               />
             </span>
             <button class="comment-form-button" type="submit">

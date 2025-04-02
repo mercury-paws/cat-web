@@ -1,5 +1,5 @@
 'use strict';
-import { sanitizeInput } from "./utils";
+import { sanitizeInput } from "./utils.js";
 
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
