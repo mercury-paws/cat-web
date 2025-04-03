@@ -13,6 +13,9 @@ axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
 const COMMENT_STORAGE_KEY = 'comment-form-state';
 const commentsForm = document.querySelector('.comments');
+const urlParams = new URLSearchParams(window.location.search);
+console.log("urlParams", urlParams);
+const catArticleId = urlParams.get("id");
 function readCommentsFormData(commentsForm) {
     const comment = commentsForm.elements.namedItem('comment').value.trim();
     const name = commentsForm.elements.namedItem('name').value.trim();
@@ -57,7 +60,7 @@ commentsForm === null || commentsForm === void 0 ? void 0 : commentsForm.addEven
         return __awaiter(this, void 0, void 0, function* () {
             var _a, _b;
             try {
-                const response = yield axios.post("/cat-comments/addComment", data);
+                const response = yield axios.post(`/cat-comments/addComment/${catArticleId}`, data);
                 console.log(response.data);
                 return true;
             }

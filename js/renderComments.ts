@@ -1,5 +1,8 @@
 const receivedComment = document.querySelector(".received-comment") as HTMLElement;
-
+const commentSection = document.querySelector(".comment-section") as HTMLElement;
+const heading = commentSection?.querySelector("h3") as HTMLElement;
+const arrOfComments = document.querySelectorAll(".received-comment") as NodeListOf<HTMLElement>;
+  
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
 
@@ -11,68 +14,56 @@ interface Comments{
 
 const localComments: Comments[] = [
   {
-    name: "Sebastian",
+    name: "Максим",
     comment:
-      "Working with you was an absolute pleasure! The process was smooth and easy. Thank you for teamwork and for building great page!",
+      "Я ніколи не усвідомлював, скільки прихованих талантів мають коти! Від їхніх мисливських інстинктів до здатності спілкуватися так витончено, неймовірно, скільки ми можемо від них навчитися. Вони справді містичні та захоплюючі створіння.",
   },
   {
     name: "Юлія",
     comment:
-      "Дуже добре попрацювали разом над проектом. Завжди допомагала колегам, якщо виникали якісь питання, роботу робила вчасно. Дякую!",
-  },
-  {
-    name: "Natalia",
-    comment:
-      "Working with you felt like having a deep conversation with someone who understands human and the need for education. Thanks a lot!",
-  },
-  {
-    name: "Helen",
-    comment:
-      "I couldn't be happier with the result! Your expertise and innovative approach made the entire experience smooth and rewarding.",
+      "Неймовірно, як коти адаптуються до свого оточення, поєднуючи грацію з інтелектом так, що це часто залишається непоміченим. Те, як вони відчувають події до того, як вони стануться, наприклад, землетруси, просто вражає. Коти — це точно більше, ніж просто милі домашні улюбленці!",
   },
 ];
 
-let index = 0;
-
-async function fetchCatComments() {
+async function fetchCatComments(): Promise<Comments[] | null> {
   try {
-    const response = await axios.get("/cat-comments");
+     const urlParams = new URLSearchParams(window.location.search);
+    console.log("urlParams", urlParams)
+    const catArticleId = urlParams.get("id");
+    const response = await axios.get(`/cat-comments/${catArticleId}`);
 	return response.data.data.data;
   } catch (error) {
     console.warn("Server request failed. Using local comments.json instead.");
     // return localComments;
+    return null;
   }  
 }
 
 async function renderCatComments() {
   let comments = await fetchCatComments();
 
-  let markup;
-
-  if (comments) {
-    const { name, comment } = comments[index];
-
-  const sanitizedComment = DOMPurify.sanitize(comment);
-  const sanitizedName = DOMPurify.sanitize(name);
-
-  markup = `
-    <p class="client-text-review">${sanitizedComment}</p>
-    <p class="client-name">${sanitizedName}</p>
-  `;
-  } else {
-    const { name, comment } = localComments[index];
-    const sanitizedComment = DOMPurify.sanitize(comment);
-  const sanitizedName = DOMPurify.sanitize(name);
-    markup = `
-    <p class="client-text-review">${sanitizedComment}</p>
-    <p class="client-name">${sanitizedName}</p>
-  `;
+  if (!comments || comments.length === 0) {
+    comments = localComments;
   }
-  
 
-    if (receivedComment) {
-  receivedComment.innerHTML = markup;
-}
+  // if (!comments || !localComments) {
+  //   heading.insertAdjacentHTML("afterend", "Comments are loading from the server, please wait, thank you");
+  // }
+
+  comments.forEach(({ name, comment }) => {
+    const sanitizedComment = DOMPurify.sanitize(comment);
+    const sanitizedName = DOMPurify.sanitize(name);
+    const markup = `
+      <article class="received-comment">
+        <p class="client-text-review">${sanitizedComment}</p>
+        <p class="client-name">${sanitizedName}</p>
+      </article>
+    `;
+    
+    heading.insertAdjacentHTML("afterend", markup);
+  })
+
+   
   }
   
   window.onload = renderCatComments;
