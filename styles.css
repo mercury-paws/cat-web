@@ -353,3 +353,33 @@
 .blog-photo {
   border-radius: 20px;
 }
+
+.received-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+
+  /* border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px; */
+  padding: 11px 16px 11px 38px;
+}
+
+.client-text-review {
+  font-size: 18px;
+  color: #6d6e7e;
+  font-style: oblique;
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: 1.12px;
+  text-align: start;
+}
+
+.client-name {
+  text-align: end;
+  margin-right: 48px;
+  color: #6d6e7e;
+  font-size: 16px;
+}

@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../css/small-art.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../js/leaveReview.js" defer></script>
-    <script src="../js/article.js" defer></script>
+    <script type="module" src="../js/leaveReview.js" defer></script>
+    <script type="module" src="../js/article.js" defer></script>
+    <script type="module" src="../js/renderComments.js" defer></script>
+    <script type="module" src="../js/comments.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.3/purify.min.js"></script>
     <title>PawPrints Journal</title>
   </head>
@@ -101,6 +103,71 @@
               цікавішим і дарують море позитивних емоцій!
             </p>
           </article>
+        </section>
+        <section class="comment-section">
+          <h3>Коментарі</h3>
+          <!-- <article class="received-comment">
+            <p class="client-text-review">
+              Я ніколи не усвідомлював, скільки прихованих талантів мають коти!
+              Від їхніх мисливських інстинктів до здатності спілкуватися так
+              витончено, неймовірно, скільки ми можемо від них навчитися. Вони
+              справді містичні та захоплюючі створіння.
+            </p>
+            <p class="client-name">Максим</p>
+          </article>
+          <article class="received-comment">
+            <p class="client-text-review">
+              Неймовірно, як коти адаптуються до свого оточення, поєднуючи
+              грацію з інтелектом так, що це часто залишається непоміченим. Те,
+              як вони відчувають події до того, як вони стануться, наприклад,
+              землетруси, просто вражає. Коти — це точно більше, ніж просто милі
+              домашні улюбленці!
+            </p>
+            <p class="client-name">Юлія</p>
+          </article> -->
+        </section>
+        <section>
+          <form class="comments" name="leave-your-comments" autocomplete="off">
+            <span>
+              <label class="comment-form-label" for="comment"
+                >Залиште ваш коментар, поділіться котячим досвідом!</label
+              >
+              <textarea
+                class="comment"
+                name="comment"
+                rows="5"
+                id="comment"
+                placeholder="Залиште ваш коментар тут..."
+              ></textarea>
+            </span>
+            <span>
+              <label class="comment-form-label" for="name">Ім'я</label>
+              <input
+                class="name"
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Ваше iм'я"
+                required
+              />
+            </span>
+            <span>
+              <label class="comment-form-label" for="email">Пошта</label>
+              <input
+                class="email"
+                id="email"
+                type="email"
+                name="email"
+                required
+                placeholder="Ваша пошта"
+                pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+                title="Please enter a valid email address (e.g. user@example.com)"
+              />
+            </span>
+            <button class="comment-form-button" type="submit">
+              Відправити
+            </button>
+          </form>
         </section>
       </div>
     </main>

@@ -8,12 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const blogList = document.querySelector('.blog');
+const loadingMessage = document.querySelector(".loading-message");
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 // axios.defaults.baseURL = "http://localhost:5500"
 axios.defaults.withCredentials = true;
 function fetchCatArticle(page) {
     return __awaiter(this, void 0, void 0, function* () {
-        var _a, _b;
         try {
             const response = yield axios.get(`/cat-article?page=${page}`);
             // console.log("3data", response.data.data.data) wrong
@@ -22,16 +22,23 @@ function fetchCatArticle(page) {
             return response.data.data.items;
         }
         catch (error) {
-            throw new Error(`Error fetching blog: ${((_b = (_a = error.response) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.message) || error.message}`);
+            console.warn("Server request failed.");
+            return [];
         }
     });
 }
 export function renderCatArticle(page) {
     return __awaiter(this, void 0, void 0, function* () {
         let blog = yield fetchCatArticle(page);
-        console.log("blog", blog); //super
-        if (!blog || blog.length === 0)
-            return;
+        document.querySelectorAll(".loading-message").forEach(msg => msg.remove());
+        if (loadingMessage) {
+            loadingMessage.remove();
+        }
+        if (!blog || blog.length === 0) {
+            blogList.insertAdjacentHTML("afterend", `<p class="loading-message">No articles available, server is down. Please visit us a little bit later.</p>`);
+        }
+        ;
+        blogList.innerHTML = '';
         blogList.innerHTML = blog
             .map(({ title, header, _id, photo }) => {
             // console.log("id", _id) super

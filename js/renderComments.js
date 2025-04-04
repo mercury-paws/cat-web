@@ -8,10 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const receivedComment = document.querySelector(".received-comment");
 const commentSection = document.querySelector(".comment-section");
 const heading = commentSection === null || commentSection === void 0 ? void 0 : commentSection.querySelector("h3");
-const arrOfComments = document.querySelectorAll(".received-comment");
+const loadingMessage = document.querySelector(".loading-message");
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
 const localComments = [
@@ -35,7 +34,6 @@ function fetchCatComments() {
         }
         catch (error) {
             console.warn("Server request failed. Using local comments.json instead.");
-            // return localComments;
             return null;
         }
     });
@@ -46,9 +44,13 @@ function renderCatComments() {
         if (!comments || comments.length === 0) {
             comments = localComments;
         }
-        // if (!comments || !localComments) {
-        //   heading.insertAdjacentHTML("afterend", "Comments are loading from the server, please wait, thank you");
-        // }
+        if (loadingMessage) {
+            loadingMessage.remove();
+        }
+        if (heading && comments.length === 0) {
+            heading.insertAdjacentHTML("afterend", `<p class="loading-message">No comments available.</p>`);
+            return;
+        }
         comments.forEach(({ name, comment }) => {
             const sanitizedComment = DOMPurify.sanitize(comment);
             const sanitizedName = DOMPurify.sanitize(name);
@@ -58,8 +60,13 @@ function renderCatComments() {
         <p class="client-name">${sanitizedName}</p>
       </article>
     `;
-            heading.insertAdjacentHTML("afterend", markup);
+            if (heading) {
+                heading.insertAdjacentHTML("afterend", markup);
+            }
         });
+        if (heading && (!comments || !localComments)) {
+            heading.insertAdjacentHTML("afterend", "<p>Comments are loading from the server, please wait. Thank you.</p>");
+        }
     });
 }
 window.onload = renderCatComments;

@@ -1,7 +1,6 @@
-const receivedComment = document.querySelector(".received-comment") as HTMLElement;
 const commentSection = document.querySelector(".comment-section") as HTMLElement;
 const heading = commentSection?.querySelector("h3") as HTMLElement;
-const arrOfComments = document.querySelectorAll(".received-comment") as NodeListOf<HTMLElement>;
+const loadingMessage = document.querySelector(".loading-message");
   
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;
@@ -27,14 +26,13 @@ const localComments: Comments[] = [
 
 async function fetchCatComments(): Promise<Comments[] | null> {
   try {
-     const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.search);
     console.log("urlParams", urlParams)
     const catArticleId = urlParams.get("id");
     const response = await axios.get(`/cat-comments/${catArticleId}`);
 	return response.data.data.data;
   } catch (error) {
     console.warn("Server request failed. Using local comments.json instead.");
-    // return localComments;
     return null;
   }  
 }
@@ -46,9 +44,16 @@ async function renderCatComments() {
     comments = localComments;
   }
 
-  // if (!comments || !localComments) {
-  //   heading.insertAdjacentHTML("afterend", "Comments are loading from the server, please wait, thank you");
-  // }
+  if (loadingMessage) {
+    loadingMessage.remove();
+  }
+
+   if (heading && comments.length === 0) {
+    heading.insertAdjacentHTML("afterend", `<p class="loading-message">No comments available.</p>`);
+    return;
+  }
+
+  
 
   comments.forEach(({ name, comment }) => {
     const sanitizedComment = DOMPurify.sanitize(comment);
@@ -60,9 +65,14 @@ async function renderCatComments() {
       </article>
     `;
     
-    heading.insertAdjacentHTML("afterend", markup);
+    if (heading) {
+  heading.insertAdjacentHTML("afterend", markup);
+}
   })
 
+  if (heading && (!comments || !localComments)) {
+  heading.insertAdjacentHTML("afterend", "<p>Comments are loading from the server, please wait. Thank you.</p>");
+}
    
   }
   

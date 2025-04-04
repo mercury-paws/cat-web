@@ -223,10 +223,13 @@
 
 .comment:hover,
 .name:hover,
+.email:hover,
 .comment:focus,
 .name:focus,
+.email:focus,
 .comment:active,
 .name:active,
+.email:active,
 .form-input:hover,
 .form-input:active,
 .form-input:focus {
