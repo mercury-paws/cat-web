@@ -1,5 +1,5 @@
 const commentSection = document.querySelector(".comment-section") as HTMLElement;
-const heading = commentSection?.querySelector("h3") as HTMLElement;
+const heading = commentSection?.querySelector(".commentsh3") as HTMLElement;
 const loadingMessage = document.querySelector(".loading-message");
   
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";

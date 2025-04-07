@@ -34,7 +34,8 @@ h2 {
 }
 
 li,
-p:not(.text-privacy-style) {
+p:not(.text-privacy-style),
+p:not(.rights-res) {
   padding: 8px 0 8px 0;
   font-size: 24px;
   z-index: 999;

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const commentSection = document.querySelector(".comment-section");
-const heading = commentSection === null || commentSection === void 0 ? void 0 : commentSection.querySelector("h3");
+const heading = commentSection === null || commentSection === void 0 ? void 0 : commentSection.querySelector(".commentsh3");
 const loadingMessage = document.querySelector(".loading-message");
 axios.defaults.baseURL = "https://profile-server-qbyd.onrender.com";
 axios.defaults.withCredentials = true;

@@ -16,7 +16,7 @@ function fetchArticle(id) {
         var _a, _b;
         try {
             const response = yield axios.get(`/cat-article/${id}`);
-            console.log(response.data.data);
+            console.log("response", response.data.data);
             return response.data.data;
         }
         catch (error) {
